@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "grpc_gen/calculator";
+
+message AddReq {
+  int64 num1 = 1;
+  int64 num2 = 2;
+}
+
+message AddResp {
+  int64 res = 1;
+}
+
+
+service CalculatorService {
+  rpc Add (AddReq) returns (AddResp);
+}
