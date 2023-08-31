@@ -1,7 +1,45 @@
-# 本项目是一个grpc使用的demo，对文件进行了划分。
+# 本项目是一个grpc使用的项目demo
+## 目录
+grpc-go-demo                 
+- client                     
+  - caller
+    - grpc.go
+  - main.go             
+  - mytest.go        
+- grpc_gen      
+  - calculator
+    - calculator.pb.go
+    - calculator_grpc.pb.go
+- protoc_files              
+    - calculator.proto     
+- server                   
+  - handler                
+      - add.go          
+  - handler.go             
+  - main.go               
+- go.mod                    
+- README.md
 
-# 下面是一个grpc简单的使用教程，与本项目关系不大
+## 目录说明
+### client 客户端代码
+- 在caller中的grpc.go文件中进行初始化操作，可以初始化多个服务的rpc调用客户端。
+- 初始化完毕后就可以调用了。
 
+### grpc_gen
+- 该目录代码不需要自己写，而是由protoc_files里面的.proto文件使用`protoc --go_out=. --go-grpc_out=. .\protoc_files\calculator.proto`命令gen出来。
+
+### protoc_files
+- 编写idl的地方。
+
+### server 服务端代码
+- 一般一个服务端对应一个.proto文件。
+- 该目录下分目录结构对idl中的方法进行实现。
+
+
+
+
+
+# grpc简单的使用教程，与本项目关系不大
 ## 1.go install
 ```bash
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
